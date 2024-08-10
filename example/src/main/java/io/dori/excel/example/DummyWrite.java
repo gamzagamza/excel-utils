@@ -3,18 +3,16 @@ package io.dori.excel.example;
 import io.dori.excel.writer.DefaultExcelFile;
 
 import java.io.FileOutputStream;
-import java.util.List;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
 
 public class DummyWrite {
 
     public static void main(String[] args) {
-        var dummies = List.of(
-                new Dummy("USER_01", "USER_01@gmail.com", "010-0000-0001"),
-                new Dummy("USER_02", "USER_02@gmail.com", "010-0000-0002"),
-                new Dummy("USER_03", "USER_03@gmail.com", "010-0000-0003"),
-                new Dummy("USER_04", "USER_04@gmail.com", "010-0000-0004"),
-                new Dummy("USER_05", "USER_05@gmail.com", "010-0000-0005")
-        );
+        var dummies = new ArrayList<Dummy>();
+        for (int i = 0; i < 10; i++) {
+            dummies.add(new Dummy("USER_" + i, "USER_" + i + "@example.com", "010-0000-0000", ZonedDateTime.now()));
+        }
 
         var excelFile = new DefaultExcelFile<>(Dummy.class);
         excelFile.addRows(dummies);
