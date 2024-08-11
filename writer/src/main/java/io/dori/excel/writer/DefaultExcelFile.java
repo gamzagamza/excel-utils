@@ -42,6 +42,7 @@ public class DefaultExcelFile<T> implements ExcelFile<T> {
     public void write(OutputStream outputStream) {
         try {
             workbook.write(outputStream);
+            workbook.close();
         } catch (IOException e) {
             throw new WorkbookWriteFailedException(e.getMessage(), e);
         }
