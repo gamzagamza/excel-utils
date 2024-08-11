@@ -11,9 +11,9 @@ import java.util.List;
 public void write(OutputStream outputStream) {
     var excelFile = new DefaultExcelFile<>(Example.class);
 
-    excelFile.addRows(new Example("A", 1));
-    excelFile.addRows(new Example("B", 2));
-    excelFile.addRows(new Example("C", 3));
+    excelFile.addRow(new Example("A", 1));
+    excelFile.addRow(new Example("B", 2));
+    excelFile.addRow(new Example("C", 3));
 
     excelFile.addRows(List.of(new Example("D", 4), new Example("E", 5)));
 
